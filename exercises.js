@@ -93,7 +93,7 @@ let myString = "hello marc how are you";
 // }
 // console.log(letters);
 
-// Solution with long if-else statement
+// Solution with if-else statement
 let letters = {};
 
 for (let i = 0; i < myString.length; i++) {
@@ -112,3 +112,18 @@ console.log(letters);
 //   letters[myString[i]] === undefined ? letters[myString[i]] = 1 : letters[myString[i]] += 1;
 // }
 // console.log(letters);
+
+// Solution with reduce method and if-else
+// source: https://www.freecodecamp.org/news/javascript-map-reduce-and-filter-explained-with-examples/
+const myArray = myString.split("");
+// const myArray = [...myString];
+let solution =  myArray.reduce(function(obj, letter) {
+  if (obj[letter] === undefined) {
+    obj[letter] = 1;
+  } else {
+    obj[letter]++;
+  }
+  return obj;
+}, {});
+
+console.log(solution);
